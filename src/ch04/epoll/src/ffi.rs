@@ -38,6 +38,12 @@ pub struct Event {
     pub(crate) epoll_data: usize,
 }
 
+impl Event {
+    pub fn token(&self) -> usize {
+        self.epoll_data
+    }
+}
+
 // Syscalls.
 #[link(name = "c")]
 unsafe extern "C" {
